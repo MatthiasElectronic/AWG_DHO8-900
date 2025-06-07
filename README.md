@@ -95,7 +95,8 @@ CLK = Sample rate = 256MHz
 The digital data is ALWAYS completely using up the headroom of the DAC.  
 Adjustments on the gain are only done by the analog gain input voltage, not digitally.  
 With Amplitude = Vpp set to 2V, all attenuation/amplification stages K1-K4 are disabled and the analog gain input is at its maximum value.  
-Still unclear is the "Protection" output signal, also it seems strange that this has to be pulled down to negative voltage.
+Still unclear is the "Protection" output signal, also it seems strange that this has to be pulled down to negative voltage.  
+The 5 relays are: /sqrt(10), /10, /10, *10, On/Off
 
 Topology discussion and design decissions
 ---
@@ -108,8 +109,8 @@ Although the original board had +15V/-12V, the same maximum output signal is ach
 
 The DAC output filter is changed. In the original design there was a 9th oder elliptic filter, which sounds great for HF suppression, but has a terrible step response. As I wanted solid edges for rectangular signals, I opted for a filter with a much better phase. While also optimizing for minimum component variation, this turned out to be a bit „creative“ and a 5th order lowpass filter (somewhere in between butterworth and bessel). But simulation in Spice looked promising and I measured the exact same step response as simulated.
 
-As can be seen below, the step response is much better while not exceeding the OP ampl slew rate. Looking at the attenuation over frequency, obviously the elliptic filter is better. My filter has a slight attenuation in the upper passband and a not so perfect attenuation at the Nyquist frequency (128MHz). However, for signals in the <10MHz range, aliasing occurs close to the sampling frequency of 256MHz, where the attenuation is comparable to the elliptic filter.
-→ My filter has a worse aliasing attenuation at high frequencies, but a better behavior for step or impulse responses.
+As can be seen below, the step response is much better while not exceeding the OP ampl slew rate. Looking at the attenuation over frequency, obviously the elliptic filter is better. My filter has a slight attenuation in the upper passband and a not so perfect attenuation at the Nyquist frequency (128MHz). However, for signals in the <10MHz range, aliasing occurs close to the sampling frequency of 256MHz, where the attenuation is comparable to the elliptic filter.  
+→ My filter has a worse aliasing attenuation at high frequencies, but a better behavior for step or impulse responses.  
 → Also, the original filter required very specific component values, which are not widely availlable. So I had no other chance than changing the filter.  
 ![filter](https://github.com/user-attachments/assets/a4ed985c-6fe5-4654-b956-b0a9295e4c98)
 
