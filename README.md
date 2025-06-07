@@ -3,7 +3,7 @@
 This is a daughter board for the Rigol DHO800 or DHO900 series oscilloscopes to add the missing hardware for the function generator.  
 State: finished and working
 
-Discussion thread: *will soon be added on EEVBlog*
+Discussion thread: https://www.eevblog.com/forum/testgear/awg-function-generator-for-dho800-900-series-oscilloscopes/
 
 ![Top_View](https://github.com/user-attachments/assets/391ab191-d99d-4693-87ea-7b54f5daa720)
 
