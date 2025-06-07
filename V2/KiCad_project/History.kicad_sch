@@ -1,0 +1,25 @@
+(kicad_sch
+	(version 20250114)
+	(generator "eeschema")
+	(generator_version "9.0")
+	(uuid "35da5900-da13-42f1-859b-6d1c0e13b1ec")
+	(paper "A4")
+	(title_block
+		(title "AWG for DHO8/900")
+		(date "2025-06-07")
+		(rev "V2")
+		(company "M. Zimmermann")
+	)
+	(lib_symbols)
+	(text "V1 - 17.05.2025 - M. Zimmermann:\nInitial release\n\nV2 - 07.06.2025 - M. Zimmermann:\nFixes after measurements:\n1. Changed R306, R212 from 100kOhm to 2.7kOhm.\n  - Amplitude dependent Offset-Bug, caused by NE5532 Bias current.\n  - Improved gain accuracy, also adapted documented calculation\n2. Mechanical improvements\n  - BNC connector moved by 0.5mm to the left and turned by 45°\n  - moved traces too close to mounting screw (however, still not perfect)\n  - reduced the board size close to the heatsink by 0.6mm"
+		(exclude_from_sim no)
+		(at 28.702 32.258 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "4c7e92b4-521b-4dab-b84b-f05eccf9d272")
+	)
+)
