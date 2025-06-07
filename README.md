@@ -132,3 +132,8 @@ AndyBig [EEVBlog] for all information about DHO800 to DHO900 vendor.bin modifica
 Mechatrommer [EEVBlog] for inspiration from his own AWG attempt and lots of tiny information  
 [hochohmig.de](https://www.hochohmig.de/) for providing calculation tools  
 Contributers to KiCad and the library plugins
+
+Disclaimer
+---
+No liability is provided if this does not work or causes any form damage or harm. This is not a product, but a development board. Use at your own risk.
+This is published with CERN-OHL-W-2.0 license, which is availlable as license.txt.
