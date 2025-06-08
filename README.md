@@ -18,7 +18,7 @@ Target of this project
 Versions
 -------
 V1: Tested and working, but has an offset bug and smaller mechanical misaligments.  
-V2: Contains fixes from V1, but not tested.
+V2: Recommended. Contains fixes from V1, but new Gerber files have not yet been tested/produced. 
 
 Performance
 ---
@@ -98,7 +98,7 @@ With Amplitude = Vpp set to 2V, all attenuation/amplification stages K1-K4 are d
 Still unclear is the "Protection" output signal, also it seems strange that this has to be pulled down to negative voltage.  
 The 5 relays are: /sqrt(10), /10, /10, *10, On/Off
 
-Topology discussion and design decissions
+Topology discussion and design decisions
 ---
 The DAC itself is the same as on the original AWG board, but in a much cheaper QFN package. The allowed DAC output current was significantly overdriven in the original design, thus I reduced this current.
 
