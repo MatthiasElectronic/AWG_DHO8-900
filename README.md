@@ -4,6 +4,8 @@ Artificial Waveform Generator for DHO800 and DHO900 series
 This is a daughter board for the Rigol DHO800 or DHO900 series oscilloscopes to add the missing hardware for the function generator.  
 State: finished and working
 
+[Download all files as zip archive here](https://github.com/MatthiasElectronic/AWG_DHO8-900/archive/refs/heads/main.zip)
+
 Discussion thread: https://www.eevblog.com/forum/testgear/awg-function-generator-for-dho800-900-series-oscilloscopes/
 
 ![Top_View](https://github.com/user-attachments/assets/391ab191-d99d-4693-87ea-7b54f5daa720)
@@ -72,15 +74,15 @@ Noise RMS = 334µV, Signal RMS = 707mV => SNR = 67dB
 Noise RMS = 5.2mV, Signal RMS = 3.54V => SNR = 57dB
 
 **Noise source**  
-In both cases, the "noise" is less a noise, but more some external ripple coupled into the signal.  
+The measured noise levels are dominated by ripples/spikes from radiated EMI of the switching requlators on the mainboard with unshielded inductors.  
 A 1.3MHz ripple is always present.  
 A 740kHz ripple is only present for >2Vpp, when the x10 gain stage (relay K4) is active. This 740kHz ripple has a much larger amplitude, degrading SNR at large amplitudes.  
 In the following FFT of a 10Vpp 1MHz sine signal, both ripples appear as peaks:  
 ![Ripple_740kHz](https://github.com/user-attachments/assets/d1d1495c-e259-4d74-b4fc-a288b3b6b7f0)  
-These two ripples dominate the noise spectrum. Don't know where they are coming from, as the buck converters on the AWG operate at 1.1MHz. The 1.3MHz ripple is even visible when the AWG (and its buck converters) is switched off.
+It might be a good idea to add some shielding, maybe it is as simple as swapping layer 3 (GND) with layer 4 (signal) and adjusting the trace widths for the impedances.
 
-In addition, there are some spikes coming from the outside, possibly the PSU brick. They occur in random intervals and are not always present, this could be related to a PSU burst mode.  
-This is measured with AWG (and its buck converters) switched off, with a probe instead of a coax cable, with both the probe tip and the probe GND connected to the BNC GND.  
+In addition, there are random (burst mode) spikes clearling coming from the PSU brick. They can even be measured on GND (both probe tip and GND connected to BNC GND) with the AWG switched off.  
+I don't think there is much than can be done against that, other than not using that PSU brick. This is probably not at all related to the AWG but to the analog stage of the oscilloscope itself.
 ![Outside_Noise_Incoupling](https://github.com/user-attachments/assets/48269cfd-e4ea-487d-ac2f-68c659ffd7df)  
 
 ### Gain and Offset accuracy
@@ -173,7 +175,7 @@ Possible Improvements
 - a DC offset potentiometer would be helpful  
 - improve the gain accuracy, but this can get very difficult  
 - choose connectors with through-hole alignment pins for easier assembly, but this might require better measurement of the dimensions.
-- Trying to find and eliminate the 740kHz and 1.3MHz ripple.
+- Eliminate the 740kHz and 1.3MHz EMI incoupling of the unshielded inductors on the mainboard. Easiest solution could be swapping layer 3 (GND) and layer 4 (signal) and correcting trace widths for the impedances.
 
 Be warned that on the left hand side from the relays, the plastic case gets very close to the PCB, so even large MLCCs or SMD inductors can be too large and the relays definitly are.
 
