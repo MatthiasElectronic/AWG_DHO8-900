@@ -1,4 +1,5 @@
-# Artificial Waveform Generator for DHO800 and DHO900 series
+Artificial Waveform Generator for DHO800 and DHO900 series
+===
 
 This is a daughter board for the Rigol DHO800 or DHO900 series oscilloscopes to add the missing hardware for the function generator.  
 State: finished and working
@@ -6,6 +7,22 @@ State: finished and working
 Discussion thread: https://www.eevblog.com/forum/testgear/awg-function-generator-for-dho800-900-series-oscilloscopes/
 
 ![Top_View](https://github.com/user-attachments/assets/391ab191-d99d-4693-87ea-7b54f5daa720)
+![bottom_view](https://github.com/user-attachments/assets/b3863e5f-22ea-4b8a-b6f5-83a7b127697f)
+![Overview](https://github.com/user-attachments/assets/b83f5fdc-5962-46e9-9f2c-e5e7d89e1459)
+
+
+Table of Contents
+===
+1. [Target of this project](#target-of-this-project)
+2. [Versions](#versions)
+3. [Performance](#performance)
+4. [Requirements](#requirements)
+5. [Cost and Ordering](#cost-and-ordering)
+6. [Interface between Mainboard and AWG daughter board](#interface-between-mainboard-and-awg-daughter-board)
+7. [Topology discussion and design decisions](#topology-discussion-and-design-decisions)
+8. [Possible Improvements](#possible-improvements)
+9. [Thanksgiving](#thanksgiving)
+10. [Disclaimer](#disclaimer)
 
 Target of this project
 -------
@@ -14,6 +31,7 @@ Target of this project
 3. Minimizing distortion (THD) and noise (SNR) is achieved.
 4. The ADC output filter is designed for better pulse and step response, therby having worse anti-alias attenuation (for >10MHz signals) and slight passband signal attenuation
 5. Gain and offset tolerances are worse. A significant contributor is anyhow on the oscilloscope mainboard, so perfection cannot be achieved. However, if unlucky, tolerances in this project can mathematically hit quite hard.
+6. As the original AWG, this function generator is designed for a 50 OHm coax cable with high impedance termination.
 
 Versions
 -------
@@ -23,22 +41,53 @@ V2: Recommended. Contains fixes from V1, but new Gerber files have not yet been 
 Performance
 ---
 All signals are created with this AWG board, mounted on a DHO804 with a DHO924S vendor.bin.  
-DC and RMS levels are measured with a multimeter.
+Measured on V1 PCB with the modifications of the V2 schematic.  
 
-![performance](https://github.com/user-attachments/assets/591ed406-e5bc-40c9-9020-f47f37d0bc8e)
+### Switching edges of a rectangular waveform
+The switching edges are clean. trise & tfall are 15.5ns. This is a picture of maximum amplitude (+/-5V), but rise and fall times were measured identical for smaller voltages.  
+![Rect](https://github.com/user-attachments/assets/c2b512a7-d432-44c5-9338-02d2765cb7e3)
 
-Here, a 1Vpp, 1kHz sine signal is displayed. Using the oscilloscopes own FFT: THD is perfect, harmonics are below the noise floor. The measureable SNR is somewhere around 80dB. Considering that this is an oscilloscope with a 12 Bit ADC, this shows that this is a quantization limitation of the analog input stage. So no major flaws in the design.
+### Bandwidth
+The -3dB point is slightly above 25MHz. At the maximum selectable frequency of 25MHz, a peak-to-peak voltage of 719mV is measured, which is just above the 707mV of the -3dB point.  
+![Bandwidth](https://github.com/user-attachments/assets/b3b38e1e-0329-405f-9f28-7e2de31cba36)
 
-There is some noise transferred from the mainboard/PSU stage to the AWG board GND, even when the AWG (including the step down converters) is switched off.
-Noise added by the AWG is not noticable. This noise is definitly relevant in the lowest signal range (2mVpp).
+### Distortion / THD
+Distortion is over the most parts independent from the amplitude, just at very small amplitudes this is different.  
+Here, a measurement of a 1kHz sine signal at 10V and 100mV peak-to-peak voltage is provided.  
+At 10Vpp, the dominant HD2 is at ca. -62dB, so THD should be below -60dB.  
+![Distortion_10V](https://github.com/user-attachments/assets/23c8edd6-0f0b-4b05-8764-f808a8116ff2)
+![Distortion_100mV](https://github.com/user-attachments/assets/01ded008-5f99-4ae2-b609-c4911f7374a7)
 
-Gain and offset are not perfect.  
-Offset: -3mV DC offset, coming directly from the motherboard. This is the most noticable offset error. Fixed this for my board, but this is completely related to tolerance. Additional offset errors are given in dependency of the AC gain and range selection, also this is amplified by 10 when the output signal exceeds 1Vp.  
-Gain: From the mainboard an error of 3% between highest and lowest reference value for the gain is coming.
+### Noise / SNR
+**Noise measurement setup:**  
+A sine signal at very low frequency is applied, the trigger is set to the crossover and the horizontal range is small such that the signal appears as DC.  
+-> This way, AC RMS can be measured and equals the RMS noise at that signal amplitude. However, ultra low frequency noise is not visible.
 
-Also, the bandwidth limitation of the filter is noticable, the amplitude does drop at 50MHz.
+**Noise at 2Vpp signal amplitude:**  
+![Noise_2V_Coax](https://github.com/user-attachments/assets/b128706f-0fe3-4c25-a284-ac9d7291351b)  
+Noise RMS = 334µV, Signal RMS = 707mV => SNR = 67dB
 
-The performance evaluation is still work in progress, therefore some values are missing.
+**Noise at 10Vpp signal amplitude:**  
+![Noise_AWG_On_10V](https://github.com/user-attachments/assets/dada7f82-e60a-4631-be19-1682378bc5aa)  
+Noise RMS = 5.2mV, Signal RMS = 3.54V => SNR = 57dB
+
+**Noise source**  
+In both cases, the "noise" is less a noise, but more some external ripple coupled into the signal.  
+A 1.3MHz ripple is always present.  
+A 740kHz ripple is only present for >2Vpp, when the x10 gain stage (relay K4) is active. This 740kHz ripple has a much larger amplitude, degrading SNR at large amplitudes.  
+In the following FFT of a 10Vpp 1MHz sine signal, both ripples appear as peaks:  
+![Ripple_740kHz](https://github.com/user-attachments/assets/d1d1495c-e259-4d74-b4fc-a288b3b6b7f0)  
+These two ripples dominate the noise spectrum. Don't know where they are coming from, as the buck converters on the AWG operate at 1.1MHz.
+
+In addition, there are some spikes coming from the outside, possibly the PSU brick. They occur in random intervals and are not always present, this could be related to a PSU burst mode.  
+This is measured with AWG (and buck converters) switched off, with a probe instead of a coax cable, with both the probe tip and the probe GND connected to the BNC GND.  
+![Outside_Noise_Incoupling](https://github.com/user-attachments/assets/48269cfd-e4ea-487d-ac2f-68c659ffd7df)  
+
+### Gain and Offset accuracy
+My prototype has -3mV DC offset, coming directly from the motherboard on the target "DC offset" pin. This is the most noticable offset error, because this one is fully visible at the smallest signal amplitudes.  
+Fixed this for my board, but this is completely related to tolerance. Additional offset errors are given in dependency of the AC gain and range selection, also this is amplified by 10 when the output signal exceeds 1Vp.  
+
+My oscilloscope mainboard has a gain error of 3% between highest and lowest gain reference value. This is the most dominant part.
 
 Requirements
 --------
@@ -69,7 +118,9 @@ After modification of the vendor.bin and the version resistors, this can be chec
 - A hole needs to be drilled in the plastic casing for the BNC connector.  
 ![unplaced](https://github.com/user-attachments/assets/92a66156-b65b-4f1a-aa15-0e5811540ead)
 ![OP_AMPs](https://github.com/user-attachments/assets/e35d6e20-c7d4-4be1-906d-9def2d9c173f)
-![placed](https://github.com/user-attachments/assets/83820e1c-8084-4c5f-86da-6679e1be05f5)
+![placed](https://github.com/user-attachments/assets/83820e1c-8084-4c5f-86da-6679e1be05f5)  
+![BNC_inside](https://github.com/user-attachments/assets/3ee46990-70c8-4f25-ae4c-3945a1c385e8)
+![BNC_outside](https://github.com/user-attachments/assets/8a6e7c0e-b36f-4f95-84f3-313098294ea1)
 
 Luckily, all remaining components (resistors, reference voltages, digital interface, …) are already assembled.
 
@@ -121,12 +172,14 @@ Possible Improvements
 - the M4 fasteners are too large, more space is required as the solder mask is currently the only line of defence.  
 - a DC offset potentiometer would be helpful  
 - improve the gain accuracy, but this can get very difficult  
-- choose THR connectors for easier assembly, but this requires better measurement of the dimensions.
+- choose connectors with through-hole alignment pins for easier assembly, but this might require better measurement of the dimensions.
+- Trying to find and eliminate the 740kHz and 1.3MHz ripple.
 
 Be warned that on the left hand side from the relays, the plastic case gets very close to the PCB, so even large MLCCs or SMD inductors can be too large and the relays definitly are.
 
-Thanks to
+Thanksgiving
 ---
+Thanks to  
 Everybody contributing to the [Hacking the Rigol DHO800/900 Scope](https://www.eevblog.com/forum/testgear/hacking-the-rigol-dho800900-scope/) thread  
 Pu6k1n [EEVBlog] for the [schematic of the reverse-engineered original AWG](https://www.eevblog.com/forum/testgear/hacking-the-rigol-dho800900-scope/?action=dlattach;attach=2492911), the pinning helped a lot  
 AndyBig [EEVBlog] for all information about DHO800 to DHO900 vendor.bin modification  
@@ -136,5 +189,7 @@ Contributers to KiCad and the library plugins
 
 Disclaimer
 ---
-No liability is provided if this does not work or causes any form damage or harm. This is not a product, but a development board. Use at your own risk.
-This is published with CERN-OHL-W-2.0 license, which is availlable as license.txt.
+This is published with CERN-OHL-W-2.0 license, which is accessible in license.txt.
+No liability is provided for this not working or causing any form of damage or harm. This is not a product, but a development board. Use at your own risk.  
+This project is influenced by the original AWG from Rigol, so only recommended for personal use. Although not checked, selling this AWG could possibly violate patents or rights of Rigol.
+
