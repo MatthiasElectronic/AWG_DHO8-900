@@ -77,10 +77,10 @@ A 1.3MHz ripple is always present.
 A 740kHz ripple is only present for >2Vpp, when the x10 gain stage (relay K4) is active. This 740kHz ripple has a much larger amplitude, degrading SNR at large amplitudes.  
 In the following FFT of a 10Vpp 1MHz sine signal, both ripples appear as peaks:  
 ![Ripple_740kHz](https://github.com/user-attachments/assets/d1d1495c-e259-4d74-b4fc-a288b3b6b7f0)  
-These two ripples dominate the noise spectrum. Don't know where they are coming from, as the buck converters on the AWG operate at 1.1MHz.
+These two ripples dominate the noise spectrum. Don't know where they are coming from, as the buck converters on the AWG operate at 1.1MHz. The 1.3MHz ripple is even visible when the AWG (and its buck converters) is switched off.
 
 In addition, there are some spikes coming from the outside, possibly the PSU brick. They occur in random intervals and are not always present, this could be related to a PSU burst mode.  
-This is measured with AWG (and buck converters) switched off, with a probe instead of a coax cable, with both the probe tip and the probe GND connected to the BNC GND.  
+This is measured with AWG (and its buck converters) switched off, with a probe instead of a coax cable, with both the probe tip and the probe GND connected to the BNC GND.  
 ![Outside_Noise_Incoupling](https://github.com/user-attachments/assets/48269cfd-e4ea-487d-ac2f-68c659ffd7df)  
 
 ### Gain and Offset accuracy
