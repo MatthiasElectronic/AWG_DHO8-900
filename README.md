@@ -87,6 +87,7 @@ Just be sure that you
 2. Use a four layer bord with the recommended or a similar stackup as documented on the first page of the schematic to have somewhat correct impedances.
 3. Have accessable vias such that you can use them as measurement points if something does not work.
 4. Do not choose a different inductor with a larger height for the step down converters, as there is no space to the casing.
+
 When keeping extended components low (I only chose the SMD inductor), then this can be quite cheap. I ended up with 34€ on JLCPCB for 5 partly assembled boards and 41€ on LCSC for components for 2 boards, including tax and shipment. This adds up to 75€. It should be ca. 53€ if I only ordered components for 1 board. (05/2025)
 
 Interface between Mainboard and AWG daughter board
