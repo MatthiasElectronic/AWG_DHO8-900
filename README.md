@@ -76,14 +76,15 @@ Noise RMS = 5.2mV, Signal RMS = 3.54V => SNR = 57dB
 **Noise source**  
 The measured noise levels are dominated by ripples/spikes from radiated EMI of the switching requlators on the mainboard with unshielded inductors.  
 A 1.3MHz ripple is always present.  
-A 740kHz ripple is only present for >2Vpp, when the x10 gain stage (relay K4) is active. This 740kHz ripple has a much larger amplitude, degrading SNR at large amplitudes.  
+A 740kHz ripple is only visible for >2Vpp, when the x10 gain stage (relay K4) is active..  
 In the following FFT of a 10Vpp 1MHz sine signal, both ripples appear as peaks:  
 ![Ripple_740kHz](https://github.com/user-attachments/assets/d1d1495c-e259-4d74-b4fc-a288b3b6b7f0)  
-It might be a good idea to add some shielding, maybe it is as simple as swapping layer 3 (GND) with layer 4 (signal) and adjusting the trace widths for the impedances.
+Luckily, this is coupled into the circuit before the attenuators, so at smaller signal amplitudes also the EMI ripple is attenuated.
 
-In addition, there are random (burst mode) spikes clearling coming from the PSU brick. They can even be measured on GND (both probe tip and GND connected to BNC GND) with the AWG switched off.  
-I don't think there is much than can be done against that, other than not using that PSU brick. This is probably not at all related to the AWG but to the analog stage of the oscilloscope itself.
+In addition, there are random (burst mode) spikes clearling coming from the PSU brick. They can even be measured with the AWG switched off.  
 ![Outside_Noise_Incoupling](https://github.com/user-attachments/assets/48269cfd-e4ea-487d-ac2f-68c659ffd7df)  
+
+**To clarify: The noise/ripple is small enough, it is not visible in time domain unless having a very small amplitude.**
 
 ### Gain and Offset accuracy
 My prototype has -3mV DC offset, coming directly from the motherboard on the target "DC offset" pin. This is the most noticable offset error, because this one is fully visible at the smallest signal amplitudes.  
@@ -175,7 +176,9 @@ Possible Improvements
 - a DC offset potentiometer would be helpful  
 - improve the gain accuracy, but this can get very difficult  
 - choose connectors with through-hole alignment pins for easier assembly, but this might require better measurement of the dimensions.
-- Eliminate the 740kHz and 1.3MHz EMI incoupling of the unshielded inductors on the mainboard. Easiest solution could be swapping layer 3 (GND) and layer 4 (signal) and correcting trace widths for the impedances.
+- Eliminate the magnetic EMI incoupling of the switching regulators on the mainboard. Easiest solution could be swapping layer 3 (GND) and layer 4 (signal) and correcting trace widths for the impedances.
+  However, as this is magnetic near field, this might not be sufficent. I tried some aluminum kitchen foil connected to GND as a shield, which brought -3dB. A floating thin iron sheet brought -10dB.
+  Another option could be to replace the unshielded inductors on the main board with shielded ones.
 
 Be warned that on the left hand side from the relays, the plastic case gets very close to the PCB, so even large MLCCs or SMD inductors can be too large and the relays definitly are.
 
