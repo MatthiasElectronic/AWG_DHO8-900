@@ -155,6 +155,9 @@ The 5 relays are: /sqrt(10), /10, /10, *10, On/Off
 
 Topology discussion and design decisions
 ---
+The topolology is  
+![Structure](https://github.com/user-attachments/assets/3d204c5b-be35-4226-9dcf-23a47e1bd643)
+
 The DAC itself is the same as on the original AWG board, but in a much cheaper QFN package. The allowed DAC output current was significantly overdriven in the original design, thus I reduced this current.
 
 The OP amps are completely exchanged in favor for the price. The original 1GHz part just seemed to be overkill for a 50MHz signal generator. I chose the 230MHz OPA2673 instead. Sadly, there is nothing cheap in between that has high voltage and high bandwith. But the slew rate is sufficient.
