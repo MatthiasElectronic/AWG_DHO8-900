@@ -38,7 +38,8 @@ Target of this project
 Versions
 -------
 V1: Tested and working, but has an offset bug and smaller mechanical misaligments.  
-V2: Recommended. Contains fixes from V1, but new Gerber files have not yet been tested/produced. 
+V2: Recommended. Contains fixes from V1, but new Gerber files have not yet been tested/produced.  
+More details are in the history page in the schematic.
 
 Performance
 ---
@@ -63,7 +64,7 @@ At 10Vpp, the dominant HD2 is at ca. -62dB, so THD should be below -60dB.
 ### Noise / SNR
 **Noise measurement setup:**  
 A sine signal at very low frequency is applied, the trigger is set to the crossover and the horizontal range is small such that the signal appears as DC.  
--> This way, AC RMS can be measured and equals the RMS noise at that signal amplitude. However, ultra low frequency noise is not visible.
+→ This way, AC RMS can be measured and equals the RMS noise at that signal amplitude. However, ultra low frequency noise is not visible.
 
 **Noise at 2Vpp signal amplitude:**  
 ![Noise_2V_Coax](https://github.com/user-attachments/assets/b128706f-0fe3-4c25-a284-ac9d7291351b)  
@@ -90,7 +91,7 @@ In addition, there are random (burst mode) spikes clearling coming from the PSU 
 My prototype has -3mV DC offset, coming directly from the motherboard on the target "DC offset" pin. This is the most noticable offset error, because this one is fully visible at the smallest signal amplitudes.  
 Fixed this for my board, but this is completely related to tolerance. Additional offset errors are given in dependency of the AC gain and range selection, also this is amplified by 10 when the output signal exceeds 1Vp.  
 
-My oscilloscope mainboard has a gain error of 3% between highest and lowest gain reference value. This is the most dominant part.
+My oscilloscope mainboard has a gain error of 3% between highest and lowest gain reference value. This is the most dominant part of the gain error, so if there is a need to fix this tolerance, this has to be done specific for each oscilloscope.
 
 Requirements
 --------
@@ -103,7 +104,7 @@ After modifying the vendor.bin, a DC offset in the analog measurement channels i
 A firmware update AFTER changing the vendor.bin, followed by a recalibration helps. I assume that the FPGA fimware is changed during a firmware update in dependency of the vendor.bin.
 
 **Hardware version resistors**  
-The hardware version configuration resistors possibly have to be changed.
+The hardware version configuration resistors on DHO800 series oscilloscopes possibly have to be changed to the DHO900 series.
 To change the hardware version to a DHO900, one resistor on the bottom of the PCB has to be moved.  
 DHO800 has hardware version 12 (0b1100), DHO900 has hardware version 8 (0b1000).  
 https://www.eevblog.com/forum/testgear/hacking-the-rigol-dho800900-scope/msg5389958/#msg5389958  
@@ -114,6 +115,7 @@ After modification of the vendor.bin and the version resistors, this can be chec
 ![versions](https://github.com/user-attachments/assets/e568bba0-863e-49a2-b307-539e91a3b76c)
 
 **Add missing components to the mainboard**  
+The DHO800 series oscilloscopes are missing some parts on the mainboard.  
 - The connectors (1.27mm female sockets) 2x20 and 2x5 have to be added (this might be helpful, thanks to Mechatrommer: https://www.youtube.com/watch?v=dBg6KQtSWTM)
 - Two OP Amps (3PEAK TP1282L1-VR) have to be added for the offset and gain analog values. These are not really suited for this operation (because they are not officially input rail-rail), but somehow this still works and they are also placed on the original DHO900 series.
 - The BNC connector is missing, but as this part is extremely high and nowhere to find, I instead increased the AWG PCB and simply mounted a smaller BNC connector on the AWG board. So this can be left empty.
@@ -146,7 +148,7 @@ When keeping extended components low (I only chose the SMD inductor), then this 
 
 Interface between Mainboard and AWG daughter board
 ----
-CLK = Sample rate = 256MHz  
+CLK = Sample rate = 156MHz  
 The digital data is ALWAYS completely using up the headroom of the DAC.  
 Adjustments on the gain are only done by the analog gain input voltage, not digitally.  
 With Amplitude = Vpp set to 2V, all attenuation/amplification stages K1-K4 are disabled and the analog gain input is at its maximum value.  
@@ -156,20 +158,29 @@ The 5 relays are: /sqrt(10), /10, /10, *10, On/Off
 Topology discussion and design decisions
 ---
 The topolology is  
-![Structure](https://github.com/user-attachments/assets/3d204c5b-be35-4226-9dcf-23a47e1bd643)
+![Topology_updated](https://github.com/user-attachments/assets/6244644b-ca57-4440-9b2e-0a566698f798)
 
 The DAC itself is the same as on the original AWG board, but in a much cheaper QFN package. The allowed DAC output current was significantly overdriven in the original design, thus I reduced this current.
 
 The OP amps are completely exchanged in favor for the price. The original 1GHz part just seemed to be overkill for a 50MHz signal generator. I chose the 230MHz OPA2673 instead. Sadly, there is nothing cheap in between that has high voltage and high bandwith. But the slew rate is sufficient.
 
 Power rails are reduced to only +6.5V and -6.5V, which is just sufficient for the maximum +5V / -5V signal output voltage and at the border of the allowed OP amp operating conditions. These are both switchers, ripple is kept low by having forced PWM and filtering directly at the OP amp inputs. There is no need for LDOs as most LDOs cannot remove the 1.1MHz ripple. The 5V relays are rated for this voltage, so this is great as well.
-Although the original board had +15V/-12V, the same maximum output signal is achieved. Having only 6.5V means that the DC offset stage had to be redone, therefore all PI attenuators and OP amp gains had to be redone. Thus, I also added matched impedances on the PCB.
+Although the original board had +15V/-12V, the same maximum output signal is achieved. Having only 6.5V means that the DC offset stage had to be redone, therefore all PI attenuators and OP amp gains had to be changed. As an easy addon, I also added matched impedances on the PCB.
 
-The DAC output filter is changed. In the original design there was a 9th oder elliptic filter, which sounds great for HF suppression, but has a terrible step response. As I wanted solid edges for rectangular signals, I opted for a filter with a much better phase. While also optimizing for minimum component variation, this turned out to be a bit „creative“ and a 5th order lowpass filter (somewhere in between butterworth and bessel). But simulation in Spice looked promising and I measured the exact same step response as simulated.
+The DAC output filter is completly redone. The original filter required very specific and uncommon component values, which are nowhere availlable, so this had to be completely changed.
 
-As can be seen below, the step response is much better while not exceeding the OP ampl slew rate. Looking at the attenuation over frequency, obviously the elliptic filter is better. My filter has a slight attenuation in the upper passband and a not so perfect attenuation at the Nyquist frequency (128MHz). However, for signals in the <10MHz range, aliasing occurs close to the sampling frequency of 256MHz, where the attenuation is comparable to the elliptic filter.  
-→ My filter has a worse aliasing attenuation at high frequencies, but a better behavior for step or impulse responses.  
-→ Also, the original filter required very specific component values, which are not widely availlable. So I had no other chance than changing the filter.  
+In the original design there was a 9th oder elliptic filter, which sounds great for HF suppression, but has a terrible step response. As I wanted solid edges for rectangular signals, I opted for a filter with a much better phase. While also optimizing for minimum component variation, this turned out to be a bit „creative“ and a 5th order lowpass filter (somewhere in between butterworth and bessel). Simulation in Spice looked promising, but the measured edges (see above, trise/fall = 15.5ns) are slightly slower than simulated (10ns).
+
+As can be seen below, the step response is much better while not exceeding the OP ampl slew rate. Looking at the attenuation over frequency, obviously the elliptic filter is better. My filter has a slight attenuation in the upper passband and a not so perfect attenuation at the sample frequency (156MHz).
+
+Attenuation in the passband: This is noticable for frequencies above 10MHz, but can be corrected for sine signals by manually adjusting the amplitude.
+
+Aliasing: Aliasing can only occur above the Nyquist frequency (78MHz). For signals with lower frequencies (e. g. <1MHz), where fsig << fsample, this is not important as the sinc-behavior in the frequency domain of the sample and hold circuit does sufficently suppress any aliasing (sinc(1-1MHz/156MHz)=-44dB), in addition to the lowpass attenuation. For larger frequencies, this will be worse and probably noticable in the FFT or a spectrum viewer.
+
+Conclusion:  
+→ a worse aliasing attenuation, relevant only at high frequencies
+→ a better behavior in the step and impulse response
+
 ![filter](https://github.com/user-attachments/assets/a4ed985c-6fe5-4654-b956-b0a9295e4c98)
 
 Possible Improvements
