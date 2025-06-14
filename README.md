@@ -57,7 +57,7 @@ The -3dB point is slightly above 25MHz. At the maximum selectable frequency of 2
 ### Distortion / THD
 Distortion is over the most parts independent from the amplitude, just at very small amplitudes this is different.  
 Here, a measurement of a 1kHz sine signal at 10V and 100mV peak-to-peak voltage is provided.  
-At 10Vpp, the dominant HD2 is at ca. -62dB, so THD should be below -60dB.  
+At 10Vpp, the dominant HD3 is at ca. -62dB, so THD should be below -60dB.  
 ![Distortion_10V](https://github.com/user-attachments/assets/23c8edd6-0f0b-4b05-8764-f808a8116ff2)
 ![Distortion_100mV](https://github.com/user-attachments/assets/01ded008-5f99-4ae2-b609-c4911f7374a7)
 
