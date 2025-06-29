@@ -104,15 +104,7 @@ After modifying the vendor.bin, a DC offset in the analog measurement channels i
 A firmware update AFTER changing the vendor.bin, followed by a recalibration helps. I assume that the FPGA fimware is changed during a firmware update in dependency of the vendor.bin.
 
 **Hardware version resistors**  
-The hardware version configuration resistors on DHO800 series oscilloscopes possibly have to be changed to the DHO900 series.
-To change the hardware version to a DHO900, one resistor on the bottom of the PCB has to be moved.  
-DHO800 has hardware version 12 (0b1100), DHO900 has hardware version 8 (0b1000).  
-https://www.eevblog.com/forum/testgear/hacking-the-rigol-dho800900-scope/msg5389958/#msg5389958  
-This step requires a recalibration afterwards. 
-Don't think that this is really necessary, please give feedback.
-
-After modification of the vendor.bin and the version resistors, this can be checked:  
-![versions](https://github.com/user-attachments/assets/e568bba0-863e-49a2-b307-539e91a3b76c)
+Update: There is no need to change the resistors for version detection - both DHO800 and DHO900 series oscilloscopes work without changing resistors.
 
 **Add missing components to the mainboard**  
 The DHO800 series oscilloscopes are missing some parts on the mainboard.  
