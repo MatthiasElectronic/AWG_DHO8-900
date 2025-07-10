@@ -110,14 +110,16 @@ Update: There is no need to change the resistors for version detection - both DH
 The DHO800 series oscilloscopes are missing some parts on the mainboard.  
 - The connectors (1.27mm female sockets) 2x20 and 2x5 have to be added (this might be helpful, thanks to Mechatrommer: https://www.youtube.com/watch?v=dBg6KQtSWTM)
 - Two OP Amps (3PEAK TP1282L1-VR) have to be added for the offset and gain analog values. These are not really suited for this operation (because they are not officially input rail-rail), but somehow this still works and they are also placed on the original DHO900 series.
-- The BNC connector is missing, but as this part is extremely high and nowhere to find, I instead increased the AWG PCB and simply mounted a smaller BNC connector on the AWG board. So this can be left empty.
-- The board need to be fixed to the mounting holes. M4 screws with two M4 fasteners were sufficient, but are slightly too large (soldermask IS the isolation...). Maybe M3 would be better.
+- The BNC connector is missing, but as this part is extremely high and nowhere to find, I instead increased the AWG PCB size and simply mounted a smaller BNC connector on the AWG board. So no extra BNC connector on the mainboard. When soldering the BNC connector onto the PCB, I suggest to do this as the last step. The SMD PCB interconnects have some tolerance and also the BNC connector ideally should not be pushed completely into the PCB to achieve the same height as the "trigger out" from the mainboard. I aligned the connector before soldering with the AWG daughterboard mounted on the mainboard.
+- The board need to be fixed to the mounting holes. M4 screws with two M4 fasteners were sufficient, but are slightly too large (soldermask IS the isolation...). A better solution (idea from hochohmig.de) are solderable M3 through hole taps, this is cleaner and does not require access to the backside of the mainboard. Securing the daughterboard to the mainboard with the mounting holes is absolutely necessary, the PCB interconnects alone are not sufficient as the BNC connector is not fastened to the case.
 - A hole needs to be drilled in the plastic casing for the BNC connector.  
 ![unplaced](https://github.com/user-attachments/assets/92a66156-b65b-4f1a-aa15-0e5811540ead)
 ![OP_AMPs](https://github.com/user-attachments/assets/e35d6e20-c7d4-4be1-906d-9def2d9c173f)
 ![placed](https://github.com/user-attachments/assets/83820e1c-8084-4c5f-86da-6679e1be05f5)  
 ![BNC_inside](https://github.com/user-attachments/assets/3ee46990-70c8-4f25-ae4c-3945a1c385e8)
 ![BNC_outside](https://github.com/user-attachments/assets/8a6e7c0e-b36f-4f95-84f3-313098294ea1)
+![through_hole_tap](https://github.com/user-attachments/assets/ed9987e9-c205-472e-9dcb-e8455fec63da)
+
 
 Luckily, all remaining components (resistors, reference voltages, digital interface, …) are already assembled.
 
