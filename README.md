@@ -8,10 +8,11 @@ State: finished and working
 
 Discussion thread: https://www.eevblog.com/forum/testgear/awg-function-generator-for-dho800-900-series-oscilloscopes/
 
+Hands-On video by Thomas from "hochohmig": https://www.youtube.com/watch?v=W03NUFdP6oc
+
 ![Top_View](https://github.com/user-attachments/assets/391ab191-d99d-4693-87ea-7b54f5daa720)
 ![bottom_view](https://github.com/user-attachments/assets/b3863e5f-22ea-4b8a-b6f5-83a7b127697f)
 ![Overview](https://github.com/user-attachments/assets/b83f5fdc-5962-46e9-9f2c-e5e7d89e1459)
-
 
 Table of Contents
 ===
@@ -197,7 +198,7 @@ Everybody contributing to the [Hacking the Rigol DHO800/900 Scope](https://www.e
 Pu6k1n [EEVBlog] for the [schematic of the reverse-engineered original AWG](https://www.eevblog.com/forum/testgear/hacking-the-rigol-dho800900-scope/?action=dlattach;attach=2492911), the pinning helped a lot  
 AndyBig [EEVBlog] for all information about DHO800 to DHO900 vendor.bin modification  
 Mechatrommer [EEVBlog] for inspiration from his own AWG attempt and lots of tiny information  
-[hochohmig.de](https://www.hochohmig.de/) for providing calculation tools  
+Thomas from [hochohmig.de](https://www.hochohmig.de/) for providing calculation tools, testing the board and creating a [demonstration video - check out his channel](https://www.youtube.com/watch?v=W03NUFdP6oc&t=1s)  
 Contributers to KiCad and the library plugins
 
 Disclaimer
