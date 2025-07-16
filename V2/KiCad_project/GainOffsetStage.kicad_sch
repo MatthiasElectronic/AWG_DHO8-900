@@ -15661,6 +15661,15 @@
 				)
 			)
 		)
+		(property "FT Rotation Offset" "90"
+			(at 78.74 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "7"
 			(uuid "3a2502c7-bf19-4241-9a64-ba88a3585167")
 		)
@@ -18316,6 +18325,15 @@
 				)
 			)
 		)
+		(property "FT Rotation Offset" "180"
+			(at 30.48 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "341018b0-ebc1-42c0-ba2e-154ea6ad1004")
 		)
@@ -19136,6 +19154,15 @@
 				(font
 					(size 1.27 1.27)
 				)
+			)
+		)
+		(property "FT Rotation Offset" "180"
+			(at 128.27 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -20654,6 +20681,15 @@
 				(font
 					(size 1.27 1.27)
 				)
+			)
+		)
+		(property "FT Rotation Offset" "180"
+			(at 67.31 154.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -22806,6 +22842,15 @@
 				)
 			)
 		)
+		(property "FT Rotation Offset" "180"
+			(at 242.57 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "5ece6630-17f0-47e7-afed-15b451c17ea0")
 		)
@@ -23653,6 +23698,15 @@
 				)
 			)
 		)
+		(property "FT Rotation Offset" "180"
+			(at 109.22 154.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "26bd6161-890d-4605-aebb-31f8242ec34c")
 		)
@@ -24407,6 +24461,15 @@
 				(font
 					(size 1.27 1.27)
 				)
+			)
+		)
+		(property "FT Rotation Offset" "180"
+			(at 115.57 168.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -26453,6 +26516,15 @@
 				(font
 					(size 1.27 1.27)
 				)
+			)
+		)
+		(property "FT Rotation Offset" "180"
+			(at 73.66 168.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -29024,6 +29096,15 @@
 				)
 			)
 		)
+		(property "FT Rotation Offset" "180"
+			(at 248.92 140.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "eb5bea02-812d-41d9-88d3-d904f01b41bb")
 		)
@@ -29565,6 +29646,15 @@
 				(font
 					(size 1.27 1.27)
 				)
+			)
+		)
+		(property "FT Rotation Offset" "180"
+			(at 201.93 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -31283,6 +31373,15 @@
 				(font
 					(size 1.27 1.27)
 				)
+			)
+		)
+		(property "FT Rotation Offset" "180"
+			(at 151.13 154.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -34022,6 +34121,15 @@
 				)
 			)
 		)
+		(property "FT Rotation Offset" "180"
+			(at 208.28 140.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "16cd58d5-5626-431e-9366-3f5bd03351c3")
 		)
@@ -35339,6 +35447,15 @@
 				)
 			)
 		)
+		(property "FT Rotation Offset" "180"
+			(at 157.48 168.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "165b8169-14fa-40ff-af88-36385299b918")
 		)
@@ -35627,6 +35744,15 @@
 				(font
 					(size 1.27 1.27)
 				)
+			)
+		)
+		(property "FT Rotation Offset" "180"
+			(at 246.38 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
 			)
 		)
 		(pin "1"
