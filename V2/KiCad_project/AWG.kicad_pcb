@@ -11410,6 +11410,19 @@
 				)
 			)
 		)
+		(property "FT Rotation Offset" "180"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "a5197056-17e3-4ac9-af57-5f3cc42f4e25")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "Q_*")
 		(path "/99c3a008-43dd-4453-b091-0467002e29bf/69193a7a-8db1-49ec-88c0-181b98516cd1")
 		(sheetname "/GainOffsetStage/")
@@ -19625,6 +19638,19 @@
 				)
 			)
 		)
+		(property "FT Rotation Offset" "180"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "473e94b5-12f7-4818-af4f-e390dff782f1")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "Q_*")
 		(path "/99c3a008-43dd-4453-b091-0467002e29bf/f779d9a8-f2e3-4519-b4cd-d1c40518bf0c")
 		(sheetname "/GainOffsetStage/")
@@ -21502,6 +21528,19 @@
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "0cb9803e-2eaf-456f-9149-3f0da8d7b173")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "FT Rotation Offset" "180"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "5a5aa9bb-def7-4748-bcf5-48b3e16dfa8d")
 			(effects
 				(font
 					(size 1 1)
@@ -28217,6 +28256,19 @@
 				)
 			)
 		)
+		(property "FT Rotation Offset" "180"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "d00dee2c-f59e-4c7a-b2fa-41b0a9374d21")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/a10de4e4-5eb9-46b1-ab1f-f89f96c3284f/4321528b-aa61-408d-88fb-edd08cfb91d7")
 		(sheetname "/DAC/")
 		(sheetfile "DAC.kicad_sch")
@@ -29618,6 +29670,19 @@
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "e34337bd-c89a-4301-81d4-2d80b21839c9")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "FT Rotation Offset" "180"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "08e93ad0-613a-4e98-a21f-6ec30e6163ba")
 			(effects
 				(font
 					(size 1 1)
@@ -40707,6 +40772,19 @@
 				)
 			)
 		)
+		(property "FT Rotation Offset" "90"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "f06c88a6-9d42-4988-8fab-48251b78a254")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/a10de4e4-5eb9-46b1-ab1f-f89f96c3284f/6ae2b769-b7d3-4bcf-ae71-9b0fc39ff8f0")
 		(sheetname "/DAC/")
 		(sheetfile "DAC.kicad_sch")
@@ -48293,6 +48371,19 @@
 				)
 			)
 		)
+		(property "FT Rotation Offset" "180"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "8273cfc0-8b2b-446e-8367-8192db9cbe4d")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/99c3a008-43dd-4453-b091-0467002e29bf/f84ab78a-34ad-47ca-a5cc-91e224f6ab43")
 		(sheetname "/GainOffsetStage/")
 		(sheetfile "GainOffsetStage.kicad_sch")
@@ -52725,6 +52816,19 @@
 				)
 			)
 		)
+		(property "FT Rotation Offset" "180"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "0b182c37-866c-488f-858f-01f7b827ca9d")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/0a420a6b-0e0d-4094-a351-42e5f7f868b1/1df8f803-a793-4d49-afe0-0ac2bbc519c5")
 		(sheetname "/OvervoltageProtection/")
 		(sheetfile "OvervoltageProtection.kicad_sch")
@@ -54836,6 +54940,19 @@
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "0d862419-fac6-4262-bae6-7b474201666b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "FT Rotation Offset" "180"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "e451c367-98ba-40f9-ba46-01cdbc47c857")
 			(effects
 				(font
 					(size 1 1)
@@ -64337,6 +64454,19 @@
 				)
 			)
 		)
+		(property "FT Rotation Offset" "180"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "da8f37c8-c20d-4451-bc48-165033f55147")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "Q_*")
 		(path "/014c66f0-0da6-476f-b477-d73a8c30240a/357eb604-b437-4b70-8522-da3f9b7141f5")
 		(sheetname "/PSUP/")
@@ -68353,6 +68483,19 @@
 				)
 			)
 		)
+		(property "FT Rotation Offset" "180"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "85c7cc95-4b4a-48bd-b692-e79ac9776df6")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "Q_*")
 		(path "/99c3a008-43dd-4453-b091-0467002e29bf/8c364422-a13c-47a6-8dbf-b9de966f6dc3")
 		(sheetname "/GainOffsetStage/")
@@ -69677,6 +69820,19 @@
 				)
 			)
 		)
+		(property "FT Rotation Offset" "180"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "76c305ea-14a8-40d1-9156-d0f2a3fc473a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "Q_*")
 		(path "/99c3a008-43dd-4453-b091-0467002e29bf/aaac27fe-710c-4da7-9dac-1c31e161d528")
 		(sheetname "/GainOffsetStage/")
@@ -70705,6 +70861,19 @@
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "5ff79540-2691-4fc8-a18b-5ab91b1132a8")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "FT Rotation Offset" "180"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "cb1e7a45-e527-45ca-98f3-4d7295650623")
 			(effects
 				(font
 					(size 1 1)
@@ -74688,6 +74857,19 @@
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "baa29d8d-3f06-423a-afd9-a3f50bbba9a3")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "FT Rotation Offset" "180"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "ec4a00d2-b48d-4541-a8d0-ecd9c6a0a95a")
 			(effects
 				(font
 					(size 1 1)
@@ -78966,6 +79148,19 @@
 				)
 			)
 		)
+		(property "FT Rotation Offset" "180"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "d6e1335a-4427-4fd6-84fb-861cd088ac2c")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/99c3a008-43dd-4453-b091-0467002e29bf/325c8c18-862d-4c63-a0f6-d77005072cb9")
 		(sheetname "/GainOffsetStage/")
 		(sheetfile "GainOffsetStage.kicad_sch")
@@ -82833,6 +83028,19 @@
 				)
 			)
 		)
+		(property "FT Rotation Offset" "180"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "d63a26e8-d0bf-4334-9d29-0660a5f39bd0")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/99c3a008-43dd-4453-b091-0467002e29bf/3f8c1a36-9a8a-4931-8076-42b2b9c43a2e")
 		(sheetname "/GainOffsetStage/")
 		(sheetfile "GainOffsetStage.kicad_sch")
@@ -84459,6 +84667,19 @@
 				)
 			)
 		)
+		(property "FT Rotation Offset" "180"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "6a656271-ccea-4e32-9fbc-3ef106b67ae0")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/99c3a008-43dd-4453-b091-0467002e29bf/5be0a551-c70f-4ef8-b6e7-980ae3528b7e")
 		(sheetname "/GainOffsetStage/")
 		(sheetfile "GainOffsetStage.kicad_sch")
@@ -85127,6 +85348,19 @@
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "a472608a-7e6b-46cd-9037-e254254a793f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "FT Rotation Offset" "180"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "6c30a4dd-fd2d-42fb-b437-1630c6b492c3")
 			(effects
 				(font
 					(size 1 1)
@@ -87860,6 +88094,19 @@
 				)
 			)
 		)
+		(property "FT Rotation Offset" "180"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "bd50a0e2-aa5b-4cd2-ae59-d7b60e934f55")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "Q_*")
 		(path "/014c66f0-0da6-476f-b477-d73a8c30240a/3313e2cd-363b-44e6-8d3a-bf311f9fbd2c")
 		(sheetname "/PSUP/")
@@ -88927,6 +89174,19 @@
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "a1f31289-3a03-4185-b630-f71ef5533f83")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "FT Rotation Offset" "180"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "3150551b-f872-4397-b4e6-07cd01d6625f")
 			(effects
 				(font
 					(size 1 1)
