@@ -5985,7 +5985,7 @@
 				)
 			)
 		)
-		(property "Value" "~"
+		(property "Value" "LMR54406FDBVR"
 			(at 158.75 45.72 0)
 			(effects
 				(font
@@ -6026,6 +6026,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "Manufacturer" "TI"
@@ -11684,7 +11685,7 @@
 				)
 			)
 		)
-		(property "Value" "~"
+		(property "Value" "LMR54406FDBVR"
 			(at 158.75 105.41 0)
 			(effects
 				(font
@@ -11725,6 +11726,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "Manufacturer" "TI"

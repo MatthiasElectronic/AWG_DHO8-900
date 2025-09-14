@@ -61727,7 +61727,7 @@
 				)
 			)
 		)
-		(property "Value" "~"
+		(property "Value" "LMR54406FDBVR"
 			(at 0 2.4 90)
 			(layer "F.Fab")
 			(uuid "adda3788-caab-43bc-9a67-8c6a04ba9f86")
@@ -77327,7 +77327,7 @@
 				)
 			)
 		)
-		(property "Value" "~"
+		(property "Value" "AD9744ACPZRL7"
 			(at 0 4.002 0)
 			(layer "F.Fab")
 			(uuid "1fdcaf16-f90d-47fb-9d07-189d3b859f5a")
@@ -81802,7 +81802,7 @@
 				)
 			)
 		)
-		(property "Value" "~"
+		(property "Value" "LMR54406FDBVR"
 			(at 0 2.4 0)
 			(layer "F.Fab")
 			(uuid "bb0cd636-3248-4618-8324-375c4de6261c")
