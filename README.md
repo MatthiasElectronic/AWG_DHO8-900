@@ -38,8 +38,8 @@ Target of this project
 
 Versions
 -------
-V1: Tested and working, but has an offset bug and smaller mechanical misaligments.  
-V2: Recommended. Contains fixes from V1, but new Gerber files have not yet been tested/produced.  
+V1: Original version, not recommended due to an offset bug and smaller mechanical misalignments.  
+V2: Recommended version.  
 More details are in the history page in the schematic.
 
 Performance
