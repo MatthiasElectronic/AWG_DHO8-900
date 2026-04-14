@@ -1,0 +1,4 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "AWG_Symbol")(type "KiCad")(uri "${KIPRJMOD}/AWG_Symbol.kicad_sym")(options "")(descr ""))
+)

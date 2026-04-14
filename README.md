@@ -39,7 +39,8 @@ Target of this project
 Versions
 -------
 V1: Original version, not recommended due to an offset bug and smaller mechanical misalignments.  
-V2: Recommended version.  
+V2: Second version, not recommended due to a bug with OPA2673 sometimes getting hot. The fix with V3 is to connected Pins A0 and A1 to GND instead of -6.5V.  
+V3: Recommended version.  
 More details are in the history page in the schematic.
 
 Performance
@@ -196,7 +197,7 @@ Thanksgiving
 Thanks to  
 Everybody contributing to the [Hacking the Rigol DHO800/900 Scope](https://www.eevblog.com/forum/testgear/hacking-the-rigol-dho800900-scope/) thread  
 Pu6k1n [EEVBlog] for the [schematic of the reverse-engineered original AWG](https://www.eevblog.com/forum/testgear/hacking-the-rigol-dho800900-scope/?action=dlattach;attach=2492911), the pinning helped a lot  
-AndyBig [EEVBlog] for all information about DHO800 to DHO900 vendor.bin modification  
+AndyBig [EEVBlog] for all information about DHO800 to DHO900 vendor.bin modification and reporting a bug with V2  
 Mechatrommer [EEVBlog] for inspiration from his own AWG attempt and lots of tiny information  
 Thomas from [hochohmig.de](https://www.hochohmig.de/) for providing calculation tools, testing the board and creating a [demonstration video - check out his channel](https://www.youtube.com/watch?v=W03NUFdP6oc&t=1s)  
 Contributers to KiCad and the library plugins
